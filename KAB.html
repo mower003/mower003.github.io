@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Keep America Beautiful: Litter Detector</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="KAB.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Keep America Beautiful: Litter Detector</h1>
+							</header>
+							<div class="content">
+								<p>Senior Capstone Project</p>
+								<a href="https://github.com/mower003/cis490_2020_project">Github Link</a>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>Client Project Proposal</h2>
+									</header>
+										<p>Litter is one of the major environmental issues of the coming decade. Improperly disposed objects contaminate waterways, pollute open areas, and reduce the visual appeal of natural spaces around the world. And to make matters worse, litter is largely comprised of synthetic materials like plastics which take decades to biodegrade, and much of it ends up floating in the ocean as marine debris. There are currently major initiatives in the United States and around the world to clean and prevent litter and marine debris. But how much litter is there? And are these efforts making a difference?</p>
+										<p>The project involves resurrecting the previously-developed machine learning algorithm, refining the algorithm to include a 360-degree image capture, implementing and validating the algorithm with a sample of test images, and then pulling images from across the defined region using Google Streets and coding these images using the machine learning algorithm. These litter codes will then be passed to Team 2.</p>
+										<p>The main goals are:</p>
+										<ol>
+											<li>Pull images from Google Streets</li>
+											<li>Collate images for ML processing to represent a defined geographic area</li>
+											<li>Apply the ML algorithm to count the number of littered items in the geographical area.</li>
+										</ol>
+									</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="#" class="image">
+										<img src="images/SanMarcosA.png" alt="" data-position="center center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Implementation Summary</h3>
+											</header>
+											<ul>
+												<li>Using plotaroute.com we gathered GPX files for streets within the city of San Marcos.</li>
+												<li>The GPX files were parsed using the python script <code>street2.1.py</code> to gather the coordinates which were then passed to Google Street View API where we captured pictures of the sides of the street.</li>
+												<li>The pictures were then processed using a previously established machine learning server and produced a text file in the format [lat,lon,kab_rank,litter_count,date_taken].</li>
+												<li>The data was collated and then inserted into an AWS Relational Database so it can be used by the UI team.</li>
+											</ul>
+											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="#" class="image">
+										<img src="images/street21img.png" alt="" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Project Highlight</h3>
+											</header>
+											<h4><code>street2.1.py</code></h4>
+												<p>Implementing this python script was a lot of fun and came with some interesting challenges.</p>
+													<ul>
+														<li>Learning how to use Python's urllib library.</li>
+														<li>Calculating the forward azimuth so as to only capture the sides of the street.</li>
+														<li>Creating a script that could process a large number of GPX files and interact with the Google Street View API.</li>
+													</ul>
+											<ul class="actions">
+												<li><a href="https://github.com/mower003/cis490_2020_project/tree/master/Scripts" class="button">Check it out on GitHub!</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="#" class="image">
+										<img src="images/pjmgmt.jpg" alt="" data-position="25% 25%" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Project Management</h3>
+											</header>
+												<ul>
+													<li>Regularly held Joint Application Development (JAD) meetings with client.</li>
+													<li>Estimated the cost of the project and tracked the actual costs throughout the project duration.</li>
+													<li>Used Gantt Charts and Project Libre to develop project timeline.</li>
+												</ul>
+											<p></p>
+											<ul class="actions">
+												<li><a href="generic.html" class="button">Learn more</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</section>
+					</div>
+
+				<!-- Contact -->
+				<section id="contact">
+					<div class="inner">
+						<section class="split">
+							<section>
+								<div class="contact-method">
+									<span class="icon solid alt fa-envelope"></span>
+									<h3>Email</h3>
+									<a href="#">mower003.j@gmail.com</a>
+								</div>
+							</section>
+						</section>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://github.com/mower003" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/jordan-mower-16973bb7/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</div>
+				</footer>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
