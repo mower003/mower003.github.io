@@ -38,11 +38,11 @@
 								<img src="images/pic07.jpg" alt="" />
 							</span>
 							<header class="major">
-								<h1>Keep America Beautiful: Litter Detector</h1>
+								<h1>Automated Coordinate Gathering Script</h1>
 							</header>
 							<div class="content">
-								<p>Senior Capstone Project</p>
-								<a href="https://github.com/mower003/cis490_2020_project">Github Link</a>
+								<p>Personal Project</p>
+								<a href="githublink">Github Link</a>
 							</div>
 						</div>
 					</section>
@@ -53,17 +53,11 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Client Project Proposal</h2>
+										<h2>Purpose</h2>
 									</header>
-										<p>Litter is one of the major environmental issues of the coming decade. Improperly disposed objects contaminate waterways, pollute open areas, and reduce the visual appeal of natural spaces around the world. And to make matters worse, litter is largely comprised of synthetic materials like plastics which take decades to biodegrade, and much of it ends up floating in the ocean as marine debris. There are currently major initiatives in the United States and around the world to clean and prevent litter and marine debris. But how much litter is there? And are these efforts making a difference?</p>
-										<p>The project involves resurrecting the previously-developed machine learning algorithm, refining the algorithm to include a 360-degree image capture, implementing and validating the algorithm with a sample of test images, and then pulling images from across the defined region using Google Streets and coding these images using the machine learning algorithm. These litter codes will then be passed to Team 2.</p>
-										<p>The main goals are:</p>
-										<ol>
-											<li>Pull images from Google Streets</li>
-											<li>Collate images for ML processing to represent a defined geographic area</li>
-											<li>Apply the ML algorithm to count the number of littered items in the geographical area.</li>
-										</ol>
-									</p>
+										<p>One of the largest drawbacks of the implementation of the Keep America Beautiful project was the manual 
+											gathering of street coordinates. My goal was to improve upon this by automating coordinate gathering using 
+											a popular street network topology tool OSMNX.</p>
 								</div>
 							</section>
 
@@ -71,7 +65,7 @@
 							<section id="two" class="spotlights">
 								<section>
 									<a href="#" class="image">
-										<img src="images/ca78img.png" alt="" data-position="center center" />
+										<img src="images/SanMarcosA.png" alt="" data-position="center center" />
 									</a>
 									<div class="content">
 										<div class="inner">
@@ -79,10 +73,7 @@
 												<h3>Implementation Summary</h3>
 											</header>
 											<ul>
-												<li>Using plotaroute.com we gathered GPX files for streets within the city of San Marcos.</li>
-												<li>The GPX files were parsed using the python script <code>street2.1.py</code> to gather the coordinates which were then passed to Google Street View API where we captured pictures of the sides of the street.</li>
-												<li>The pictures were then processed using a previously established machine learning server and produced a text file in the format [lat,lon,kab_rank,litter_count,date_taken].</li>
-												<li>The data was collated and then inserted into an AWS Relational Database so it can be used by the UI team.</li>
+												<li>TODO Implementation summary of acgs.</li>
 											</ul>
 											
 										</div>
