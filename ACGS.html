@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Keep America Beautiful: Litter Detector</title>
+		<title>Automated Coordinate Gathering Script</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -42,7 +42,7 @@
 							</header>
 							<div class="content">
 								<p>Personal Project</p>
-								<a href="githublink">Github Link</a>
+								<a href="https://github.com/mower003/ACGS">Github Link</a>
 							</div>
 						</div>
 					</section>
@@ -57,7 +57,9 @@
 									</header>
 										<p>One of the largest drawbacks of the implementation of the Keep America Beautiful project was the manual 
 											gathering of street coordinates. My goal was to improve upon this by automating coordinate gathering using 
-											a popular street network topology tool OSMNX.</p>
+											a popular street network topology tool OSMNX. Using Miniconda we can install OSMNX and its dependencies to an environment.
+											Papermill is also installed to the environment so that we can run Jupyter Notebook (.ipynb) files from the command line.</p>
+										
 								</div>
 							</section>
 
@@ -73,7 +75,20 @@
 												<h3>Implementation Summary</h3>
 											</header>
 											<ul>
-												<li>TODO Implementation summary of acgs.</li>
+												<li><code>acgs.py</code> is run and using the subprocess module of Python calls subprocess.run() after gathering input from the user. </li>
+												<li>Within the subprocess.run() command we pass a predetermined command line string that uses Papermill and 
+													appends the user input as variables to the Jupyter Notebook file <code>osmnxgetcoords.ipynb</code>.</li>
+												<li>OSMNX provides a graph which contains nodes and edges for each intersection and street within a city.
+													This can be leveraged to generate coordinates for every street in a specified city.</li>
+												<li>The <code>osmnxgetcoords.ipynb</code> script queries the user defined city.
+													That query returns a geometry object which contains coordinates and street names, however, the coordinates
+													are in the incorrect order and must be swapped to the form (latitude, longitude). The coordinates for each
+													street are added to a dictionary where the key is the street name and the value is a list of coordinates.</li>
+												<li>The use of a dictionary is convenient because this allows me to save the the street names and coordinate lists
+													to disk as a JSON file using Python's JSON library.</li>
+												<li>An image of the street topology is also generated along with the JSON file and saved to the users desktop
+													in a folder titled 'osmnxOutputFiles'.
+												</li>
 											</ul>
 											
 										</div>
@@ -81,50 +96,26 @@
 								</section>
 								<section>
 									<a href="#" class="image">
-										<img src="images/street21img.png" alt="" data-position="top center" />
+										<img src="images/Oceanside_California_USA_Map.png" alt="" data-position="top center" />
 									</a>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
 												<h3>Project Highlight</h3>
 											</header>
-											<h4><code>street2.1.py</code></h4>
-												<p>Implementing this python script was a lot of fun and came with some interesting challenges.</p>
-													<ul>
-														<li>Learning how to use Python's urllib library.</li>
-														<li>Calculating the forward azimuth so as to only capture the sides of the street.</li>
-														<li>Creating a script that could process a large number of GPX files and interact with the Google Street View API.</li>
-													</ul>
+											<p>Automating the gathering of coordinates completely transforms the KAB project from something largely 'proof-of-concept'
+												into something useable and meaningful. This allows the user to go from approximately 4,000 points of data to over 20,000. Furthermore,
+												the data is now in an easy to use JSON format which can be read back into a python dictionary using the JSON library. This means
+												no more creating and parsing GPX files for coordinate pairs!
+											</p>
 											<ul class="actions">
-												<li><a href="https://github.com/mower003/cis490_2020_project/tree/master/Scripts" class="button">Check it out on GitHub!</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="#" class="image">
-										<img src="images/pjmgmt.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Project Management</h3>
-											</header>
-												<ul>
-													<li>Regularly held Joint Application Development (JAD) meetings with client.</li>
-													<li>Estimated the cost of the project and tracked the actual costs throughout the project duration.</li>
-													<li>Used Gantt Charts and Project Libre to develop project timeline and manage tasks.</li>
-												</ul>
-											<p></p>
-											<ul class="actions">
-												<li><a href="https://github.com/mower003/cis490_2020_project/blob/master/Documentation/Goole%20Drive%20Project%20Files/Reports/Final%20Report/Final%20Report.pdf" class="button">Final Report</a></li>
+												<li><a href="https://github.com/mower003/ACGS/blob/master/osmnxgetcoords.ipynb" class="button">Check it out on GitHub!</a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
 							</section>
 					</div>
-
 				<!-- Contact -->
 				<section id="contact">
 					<div class="inner">
