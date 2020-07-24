@@ -27,15 +27,16 @@
 							<li><a href="index.html">Home</a></li>
 							<li><a href="KAB.html">Keep America Beautiful</a></li>
 							<li><a href="ACGS.html">Automated Coordinate Gathering Script</a></li>
+							<li><a href="Milestone.html">Milestone: CSUSM Course Scheduler Application</a></li>
 						</ul>
 					</nav>
 
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
+					<section id="banner" class="style1">
 						<div class="inner">
 							<span class="image">
-								<img src="images/pic07.jpg" alt="" />
+								<img src="images/pic06.jpg" alt="" />
 							</span>
 							<header class="major">
 								<h1>Automated Coordinate Gathering Script</h1>
@@ -55,7 +56,7 @@
 									<header class="major">
 										<h2>Purpose</h2>
 									</header>
-										<p>One of the largest drawbacks of the implementation of the Keep America Beautiful project was the manual 
+										<p>One of the largest drawbacks of the implementation of my Senior Project 'Keep America Beautiful:Litter Detector' was the manual 
 											gathering of street coordinates. My goal was to improve upon this by automating coordinate gathering using 
 											a popular street network topology tool OSMNX. Using Miniconda we can install OSMNX and its dependencies to an environment.
 											Papermill is also installed to the environment so that we can run Jupyter Notebook (.ipynb) files from the command line.</p>
@@ -67,7 +68,7 @@
 							<section id="two" class="spotlights">
 								<section>
 									<a href="#" class="image">
-										<img src="images/SanMarcosA.png" alt="" data-position="center center" />
+										<img src="images/SanMarcosA.png" alt="San Marcos, CA, USA" data-position="center center" />
 									</a>
 									<div class="content">
 										<div class="inner">
@@ -75,14 +76,14 @@
 												<h3>Implementation Summary</h3>
 											</header>
 											<ul>
-												<li><code>acgs.py</code> is run and using the subprocess module of Python calls subprocess.run() after gathering input from the user. </li>
+												<li><code>ascgs.py</code> is run and using the subprocess module of Python calls subprocess.run() after gathering input from the user. </li>
 												<li>Within the subprocess.run() command we pass a predetermined command line string that uses Papermill and 
 													appends the user input as variables to the Jupyter Notebook file <code>osmnxgetcoords.ipynb</code>.</li>
 												<li>OSMNX provides a graph which contains nodes and edges for each intersection and street within a city.
 													This can be leveraged to generate coordinates for every street in a specified city.</li>
 												<li>The <code>osmnxgetcoords.ipynb</code> script queries the user defined city.
 													That query returns a geometry object which contains coordinates and street names, however, the coordinates
-													are in the incorrect order and must be swapped to the form (latitude, longitude). The coordinates for each
+													are in the incorrect order and must be swapped to the form (latitude, longitude) rather than the OSMNX format (longitude, latitude) The coordinates for each
 													street are added to a dictionary where the key is the street name and the value is a list of coordinates.</li>
 												<li>The use of a dictionary is convenient because this allows me to save the the street names and coordinate lists
 													to disk as a JSON file using Python's JSON library.</li>
@@ -96,7 +97,7 @@
 								</section>
 								<section>
 									<a href="#" class="image">
-										<img src="images/Oceanside_California_USA_Map.png" alt="" data-position="top center" />
+										<img src="images/Oceanside_California_USA_Map.png" alt="Oceanside_California_USA_Map" data-position="top center" />
 									</a>
 									<div class="content">
 										<div class="inner">
@@ -108,8 +109,50 @@
 												the data is now in an easy to use JSON format which can be read back into a python dictionary using the JSON library. This means
 												no more creating and parsing GPX files for coordinate pairs!
 											</p>
+											<p>The largest headache in this project was realizing that OSMNX produced coordinate pairs in the wrong format for use
+												with Google Street View.To add to this, the lists of coordinate pairs per street were segmented based on the intersections
+												with that street, so it essentially produced a list of lists for every street. The following snippet of code is what I used
+												to overcome this difficulty:</br>
+												<code>for coordinateLists in coords:</br>
+												&emsp; for coordinatePairs in coordinateLists:</br>
+												&emsp;&emsp;&emsp;tmpCoords = str(coordinatePairs[1]) + " " + str(coordinatePairs[0])</br>
+												&emsp;&emsp;&emsp;temp_coords_list.append(tmpCoords)</br>
+												&emsp;&emsp;&emsp;#print(temp_coords_list)</br>
+												&emsp;&emsp;&emsp;JSON_street_dict.update({name:temp_coords_list.copy()})</br>
+												&emsp;&emsp;temp_coords_list.clear()
+												</code>
+											</br> For every coordinate list in the street iterate through all the coordinate pairs, swap the first with the second,
+											append it to a temporary list and copy that to a dictionary then clear the temporary list. This repeats for every street 
+											ignoring any street that may have produced an empty list.
+											</p>
 											<ul class="actions">
 												<li><a href="https://github.com/mower003/ACGS/blob/master/osmnxgetcoords.ipynb" class="button">Check it out on GitHub!</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="#" class="image">
+										<img src="images/Carlsbad_California_USA_Map.png" alt="Oceanside_California_USA_Map" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Project Experiences</h3>
+											</header>
+											<p>Implementing this project gave me experience working with the following:</p>
+											<ul>
+												<li>Python</li>
+												<li>OSMNX</li>
+												<li>Jupyter Notebook & Jupyter Lab</li>
+												<li>Exposure to the data science package manager Miniconda</li>
+												<li>Generating & working with large data sets.</li>
+												<li>JSON</li>
+												<li>Git & GitHub</li>
+												<li>How to find my own solutions programming hurdles by taking advantage of third-party libraries.</li>
+											</ul>
+											<ul class="actions">
+												<li><a href="https://github.com/mower003/ACGS/tree/master/osmnxOutputFiles" class="button">JSON files and more Images</a></li>
 											</ul>
 										</div>
 									</div>
