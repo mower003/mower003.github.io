@@ -68,6 +68,7 @@
 											<li>Dynamo DB (NoSQL)</li>
 											<li>Java</li>
 											<li>Android Studio</li>
+											<li>Amazon Cognito User-Pools</li>
 										</ul>
 								</div>
 							</section>
@@ -76,36 +77,39 @@
 							<section id="two" class="spotlights">
 								<section>
 									<a href="#" class="image">
-										<img src="images/Milestone_Architecture_Diagram.png" alt="" style="height:70%;margin-top:15%;" data-position="center center" />
+										<img src="images/Milestone_Architecture_Diagram.png" alt="High-Level Architectural Diagram" style="height:70%;margin-top:15%;" data-position="center center" />
 									</a>
 									<div class="content">
 										<div class="inner">
-											<header class="major">
-												<h3>Architectural Model</h3>
-											</header>
-											<h4>M-V-C (Model-View-Controller)</h4>
-											<p><b>Model</b></p>
-											<p>The implementation of the database was done using AWS DynamoDB using GraphQL which is NoSQL. This represents the model and had schemas 
-												for course, task,and userdata. Within each of these were the necessary variables related to each data point that was required for the 
-												implementation to work. Because of AWS Amplify connecting to the database was simply done through callback methods under a standard 
-												structure provided to us by the framework. This simplified querying, mutating, deleting, and updating information to and from 
-												the client.</p>
-											<p><b>View</b></p>
-											<p>The implementation of the view component involved the creation of layout files in Android Studio. These are comprised of XML and 
-												Java and are the front-end aspect of the implementation. These house the various UI components that users interact with to alter 
-												the state of the model or send information to the controllers. They may also be updated by the model via GraphQL calls. </p>
-											<p><b>Controller</b></p>
-											<p>The implementation of the controllers are Java files. These are tasked with creating, querying, or updating the model or updating the 
-												view with new information. These also hold information that is related to the state of the application. These establish connections to
-												the model through GraphQL Callback methods. Some of the controllers lay within a designated controller class, while others reside in 
-												Activities where they have access to various functions of the underlying Android OS logic.</p>
-											<p>The “Milestone” application will make use of Model-View-Controller architecture. This suits our application 
-												well because of the three elements that are consistent with our needs. Our clients will be interacting with 
-												their view on the mobile devices which in turn will update the model or be updated by the model. The controller
-												will provide the necessary ability to update the model and view based on the interactions with data components. 
-												The model provides us with the capabilities to store, access, and manipulate the necessary data for display and 
-												control.</p>
-											
+											<h2 id="content">Architectural Model</h2>
+											<p>The “Milestone” application used the Model-View-Controller-esque design pattern. This suits our application 
+												well because of the need for separate entities controlling data, presentation, and access to the server. 
+												The view will house the presentation, the controller will reside on the client and keep model up-to-date, 
+												and changes to the model will be propagated to the view.</p>
+											<div class="row">
+												<div class="col-6 col-12-small">
+													<h3>Model</h3>
+													<p>The implementation of the database was done using AWS DynamoDB using GraphQL which is NoSQL. This represents the model and had schemas 
+														for course, task,and userdata. Within each of these were the necessary variables related to each data point that was required for the 
+														implementation to work. Because of AWS Amplify connecting to the database was simply done through callback methods under a standard 
+														structure provided to us by the framework. This simplified querying, mutating, deleting, and updating information to and from 
+														the client.</p>
+												</div>
+												<div class="col-6 col-12-small">
+													<h3>View</h3>
+													<p>The implementation of the view component involved the creation of layout files in Android Studio. These are comprised of XML and 
+														Java and are the front-end aspect of the implementation. These house the various UI components that users interact with to alter 
+														the state of the model or send information to the controllers. They may also be updated by the model via GraphQL calls.</p>
+												</div>
+												<!-- Break -->
+												<div class="col-4 col-12-medium">
+													<h3>Controller</h3>
+													<p>The implementation of the controllers are Java files. These are tasked with creating, querying, or updating the model or updating the 
+														view with new information. These also hold information that is related to the state of the application. These establish connections to
+														the model through GraphQL Callback methods. Some of the controllers lay within a designated controller class, while others reside in 
+														Activities where they have access to various functions of the underlying Android OS logic.</p>
+												</div>
+											</div>
 										</div>
 									</div>
 								</section>
@@ -116,7 +120,7 @@
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Implented Functional Requirements from SRS (Software Requirement Specification)</h3>
+												<h3>Implemented Functional Requirements from SRS (Software Requirement Specification)</h3>
 											</header>
 												<ul>
 													<li>3.2.1.1 Functional Requirement 1 - Registration </li>
@@ -165,25 +169,18 @@
 					<div class="inner">
 						<section class="split">
 							<section>
-								<div class="contact-method">
-									<span class="icon solid alt fa-envelope"></span>
-									<h3>Email</h3>
-									<a href="#">mower003.j@gmail.com</a>
+								<div class="col-6 col-12-small">
+									
+									<ul class="icons">
+										<li><a href="https://github.com/mower003" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://www.linkedin.com/in/jordan-mower-16973bb7/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+										<li><b>Email: </b><a href="https://mail.google.com/mail/u/0/#inbox">mower003.j@gmail.com</a></li>
+									</ul>
 								</div>
 							</section>
 						</section>
 					</div>
 				</section>
-
-			<!-- Footer -->
-				<footer id="footer">
-					<div class="inner">
-						<ul class="icons">
-							<li><a href="https://github.com/mower003" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/in/jordan-mower-16973bb7/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						</ul>
-					</div>
-				</footer>
 		</div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
